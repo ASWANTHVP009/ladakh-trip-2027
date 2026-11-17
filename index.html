@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ladakh Couple Bike Expedition | July 2027</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{--ink:#172033;--muted:#64748b;--line:#e2e8f0;--teal:#0f766e;--blue:#1d4ed8}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fa;color:var(--ink);font:15px/1.6 system-ui,Arial,sans-serif}
+header{background:linear-gradient(120deg,#102a43,#0f766e);color:white;padding:38px 20px}
+.wrap{max-width:1100px;margin:auto;padding:0 18px}h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.1;margin:8px 0}
+h2{margin:34px 0 12px;font-size:1.55rem}h3{margin:0 0 5px;font-size:1.05rem}.muted{color:var(--muted);font-size:.9rem}
+.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{border:1px solid #ffffff70;border-radius:30px;padding:4px 10px;font-size:.8rem}
+main{padding:24px 0 55px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card,.day{background:white;border:1px solid var(--line);border-radius:13px;padding:15px}.metric{font-size:1.6rem;font-weight:750}
+.notice{background:#fff7ed;border-left:4px solid #d97706;padding:14px;border-radius:8px;margin:18px 0}
+.map{height:450px;border:1px solid var(--line);border-radius:13px;overflow:hidden}.days{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:11px}
+.daytop{display:flex;justify-content:space-between;gap:10px}.km{color:var(--teal);font-weight:750;white-space:nowrap}
+ul{padding-left:20px;margin:7px 0}li{margin:3px 0}a.btn{display:inline-block;background:var(--teal);color:white;padding:9px 13px;border-radius:8px;text-decoration:none;margin:7px 5px 7px 0;font-weight:650}
+a.blue{background:var(--blue)}table{width:100%;border-collapse:collapse;background:white}td,th{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#edf2f7}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted)}
+@media(max-width:600px){.map{height:360px}td,th{font-size:.88rem;padding:8px}}
+@media print{.map{height:330px}.btn{display:none}.day{break-inside:avoid}}
+</style></head><body>
+<header><div class="wrap"><div class="pills"><span class="pill">JULY 2027</span><span class="pill">COUPLE MOTORCYCLE TOUR</span><span class="pill">BALUSSERY START & FINISH</span></div>
+<h1>Ladakh Couple Bike Expedition</h1><p>Going via Lonavala, Rajasthan, Punjab and Kashmir. Returning via Leh–Manali, Rohtang and Himachal Pradesh. Separate maps for both directions.</p></div></header>
+<main class="wrap">
+<div class="grid">
+<div class="card"><div class="muted">Estimated going distance</div><div class="metric">~3,645 km</div><div class="muted">Balussery to Leh via Lonavala, Rajasthan, Punjab and Kashmir.</div></div>
+<div class="card"><div class="muted">Estimated Ladakh circuit</div><div class="metric">~685 km</div><div class="muted">Leh, Nubra/Turtuk, Pangong and back to Leh.</div></div>
+<div class="card"><div class="muted">Estimated return distance</div><div class="metric">~3,260 km</div><div class="muted">Leh to Balussery via Jispa, Rohtang, Manali and Himachal.</div></div>
+<div class="card"><div class="muted">Estimated total distance</div><div class="metric">~7,590 km</div><div class="muted">Going + Ladakh local riding + return; approximate route-planning total.</div></div>
+<div class="card"><div class="muted">Target duration</div><div class="metric">22 days</div><div class="muted">Very tight; see feasibility note.</div></div>
+<div class="card"><div class="muted">Daily start target</div><div class="metric">6:00 AM</div><div class="muted">Only when weather and rider condition are safe.</div></div>
+<div class="card"><div class="muted">Riding assumption</div><div class="metric">2-up</div><div class="muted">One bike, rider + pillion.</div></div>
+</div>
+<div class="notice"><b>Distance summary:</b> approximately 3,645 km going + 685 km Ladakh local circuit + 3,260 km return = <b>about 7,590 km total</b>. These are indicative planning estimates, not verified navigation totals. Actual mileage will change with detours, accommodation locations and road closures.</div><div class="notice"><b>Important feasibility note:</b> All requested places, the Kerala–Ladakh round trip, at least 48 hours of acclimatisation in Leh, Nubra/Turtuk and Pangong cannot be comfortably completed in 22 days with safe daily riding limits. The framework below exposes the long days rather than disguising them. I strongly recommend adding 3–5 days or dropping stops. Never skip acclimatisation, ride exhausted, or continue through unsafe weather to meet the schedule.</div>
+
+<h2>Going route map – Lonavala, Rajasthan, Punjab & Kashmir</h2>
+<p>Balussery → Mangaluru → Lonavala → Udaipur → Ajmer → Jaipur → Amritsar / Golden Temple → Attari–Wagah → Pathankot → Srinagar → Sonamarg → Zoji La → Kargil War Memorial → Kargil → Lamayuru → Leh.</p>
+<div id="going" class="map"></div>
+<p class="muted">Pins and connecting line are an itinerary overview, not turn-by-turn road geometry. Use live navigation and split long legs into daily routes.</p>
+<a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Balussery,+Kerala&destination=Leh,+Ladakh&waypoints=Mangaluru,+Karnataka%7CLonavala,+Maharashtra%7CUdaipur,+Rajasthan%7CAjmer,+Rajasthan%7CJaipur,+Rajasthan%7CAmritsar,+Punjab%7CAttari-Wagah+Border%7CPathankot,+Punjab%7CSrinagar,+Jammu+and+Kashmir%7CSonamarg%7CZoji+La%7CKargil+War+Memorial,+Dras%7CKargil,+Ladakh%7CLamayuru,+Ladakh&travelmode=driving">Open going route in Google Maps ↗</a>
+
+<h2>Return route map – Ladakh & Himachal Pradesh</h2>
+<p>Leh → Jispa → Keylong → Rohtang Pass → Manali → Chandigarh → Indore → Hyderabad → Bengaluru → Balussery.</p>
+<div id="return" class="map"></div>
+<p class="muted">Rohtang access may be regulated. If it is closed or impractical, the Atal Tunnel is an alternative but bypasses Rohtang Pass.</p>
+<a class="btn blue" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Leh,+Ladakh&destination=Balussery,+Kerala&waypoints=Jispa,+Himachal+Pradesh%7CKeylong,+Himachal+Pradesh%7CRohtang+Pass,+Himachal+Pradesh%7CManali,+Himachal+Pradesh%7CChandigarh%7CIndore,+Madhya+Pradesh%7CHyderabad,+Telangana%7CBengaluru,+Karnataka&travelmode=driving">Open return route in Google Maps ↗</a>
+
+<h2>Day-by-day itinerary framework</h2><p class="muted">Approximate kilometres only; actual distances depend on road selection, diversions and accommodation. Verify roads, permits and weather shortly before travel.</p>
+<div class="days">
+<div class="day"><div class="daytop"><h3>Day 1 · Balussery → Mangaluru</h3><span class="km">~270 km</span></div><small>6 AM · 6–8 hrs</small><ul><li>Kozhikode – Kannur – Kasaragod – Mangaluru.</li><li>Breakfast around Kannur; fuel and lunch breaks.</li><li>Stay: private hotel with secure parking.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 2 · Mangaluru → Lonavala</h3><span class="km">~650 km</span></div><small>6 AM · very long day</small><ul><li>Ride north via the selected Goa/Konkan–Pune corridor.</li><li>Frequent breaks; no sightseeing detours.</li><li>Stay: Lonavala hotel.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 3 · Lonavala → Udaipur</h3><span class="km">~650–700 km</span></div><small>6 AM · very long day</small><ul><li>Use a suitable Maharashtra/Gujarat highway route.</li><li>Split this leg if fatigued; do not ride late to make up time.</li><li>Stay: Udaipur.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 4 · Udaipur → Ajmer → Jaipur</h3><span class="km">~400 km</span></div><small>6 AM</small><ul><li>Udaipur: Lake Pichola / City Palace if time allows.</li><li>Ajmer visit; allow time for parking and walking.</li><li>Continue to Jaipur; stay in Jaipur.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 5 · Jaipur → Amritsar</h3><span class="km">~650–700 km</span></div><small>6 AM · long day</small><ul><li>Jaipur: Hawa Mahal / Amber Fort only if visit time is protected.</li><li>Delhi bypass and Punjab highway corridor.</li><li>Stay: Amritsar.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 6 · Amritsar local</h3><span class="km">~40–70 km</span></div><small>Early start</small><ul><li>Golden Temple (Sri Harmandir Sahib).</li><li>Jallianwala Bagh if time permits.</li><li>Attari–Wagah ceremony; verify visitor timings and restrictions.</li><li>Stay: Amritsar.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 7 · Amritsar → Pathankot</h3><span class="km">~120 km</span></div><small>6 AM</small><ul><li>Short transfer; inspect tyres, brakes, chain and luggage.</li><li>Stay: Pathankot.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 8 · Pathankot → Srinagar</h3><span class="km">~350–400 km</span></div><small>6 AM · allow extra time</small><ul><li>Via Jammu and the highway/tunnel corridor.</li><li>Check traffic, security and weather advisories.</li><li>Stay: Srinagar.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 9 · Srinagar → Sonamarg → Kargil</h3><span class="km">~200–220 km</span></div><small>6 AM · mountain road</small><ul><li>Sonamarg stop; proceed only if Zoji La is open.</li><li>Cross Zoji La in daylight and follow traffic control.</li><li>Kargil War Memorial at Dras if open and time allows.</li><li>Stay: Kargil.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 10 · Kargil → Lamayuru → Leh</h3><span class="km">~220 km</span></div><small>6 AM · mountain road</small><ul><li>Lamayuru Monastery / Moonland viewpoint.</li><li>Reach Leh; rest and avoid exertion.</li><li>Stay: Leh.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 11 · Leh acclimatisation</h3><span class="km">0–10 km</span></div><small>No high-pass ride</small><ul><li>Rest, hydrate, eat light and monitor both riders.</li><li>No Khardung La, Chang La or strenuous sightseeing.</li><li>Stay: same Leh hotel.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 12 · Leh acclimatisation</h3><span class="km">0–15 km</span></div><small>Complete at least 48 hours before higher excursions</small><ul><li>Continue resting; seek medical help for concerning symptoms.</li><li>Gentle local movement only if both feel well.</li><li>Stay: Leh.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 13 · Leh local / buffer</h3><span class="km">20–40 km</span></div><small>Only if symptom-free</small><ul><li>Leh Palace, Shanti Stupa, Hall of Fame or market.</li><li>Use as weather, road or health contingency if needed.</li><li>Stay: Leh.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 14 · Leh → Nubra → Turtuk</h3><span class="km">~200–220 km</span></div><small>6 AM · high altitude</small><ul><li>Cross Khardung La only if open and both riders are well.</li><li>Diskit and Hunder if time allows.</li><li>Continue to Turtuk; verify local entry requirements.</li><li>Stay: Turtuk / Nubra registered homestay.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 15 · Turtuk → Pangong Tso</h3><span class="km">~200–250 km</span></div><small>6 AM · road-condition dependent</small><ul><li>Shyok route via Agham / Shyok / Durbuk only if officially open and safe.</li><li>Water crossings and damaged surfaces can make it unsuitable.</li><li>Stay: registered Pangong camp or guesthouse.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 16 · Pangong → Leh</h3><span class="km">~220 km</span></div><small>6 AM</small><ul><li>Early lake visit; return via Chang La only if open.</li><li>Stay: Leh; refuel and prepare for the Manali highway.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 17 · Leh → Jispa</h3><span class="km">~330–350 km</span></div><small>6 AM · extremely demanding</small><ul><li>Via Upshi, Tanglang La, More Plains, Sarchu and Baralacha La.</li><li>Attempt only with favourable weather, road status, fuel and rider condition.</li><li>Stop earlier if conditions are poor; add a day.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 18 · Jispa → Rohtang → Manali</h3><span class="km">~150–190 km</span></div><small>6 AM · permit dependent</small><ul><li>Keylong and Rohtang Pass approach.</li><li>Rohtang access may require permits or be restricted.</li><li>If closed, Atal Tunnel is an alternative but bypasses Rohtang.</li><li>Stay: Manali.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 19 · Manali → Chandigarh</h3><span class="km">~300 km</span></div><small>6 AM</small><ul><li>Via Mandi and Bilaspur.</li><li>Stay: Chandigarh; rest and service check.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 20 · Chandigarh → Indore</h3><span class="km">~850–900 km</span></div><small>6 AM · not recommended in one day</small><ul><li>Exceptionally long transfer; split this leg if fatigued.</li><li>Do not attempt a 900 km day with pillion and luggage to meet the calendar.</li><li>Staying en route means exceeding 22 days.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 21 · Indore → Hyderabad</h3><span class="km">~700 km</span></div><small>6 AM · long transfer</small><ul><li>Major highway route; schedule fuel, food and rest stops.</li><li>Stay: Hyderabad.</li></ul></div>
+<div class="day"><div class="daytop"><h3>Day 22 · Hyderabad → Balussery</h3><span class="km">~850–900 km</span></div><small>6 AM · not recommended in one day</small><ul><li>Return via Karnataka towards Kerala.</li><li>This is too long for a safe one-day couple ride.</li><li>Plan an overnight stop; the full journey will exceed 22 days.</li></ul></div>
+</div>
+
+<h2>Your saved sightseeing checklist</h2><div class="grid">
+<div class="card"><h3>Maharashtra & Rajasthan</h3><ul><li>Lonavala</li><li>Ajmer</li><li>Jaipur</li><li>Udaipur (suggested route stop)</li></ul></div>
+<div class="card"><h3>Punjab & Himachal</h3><ul><li>Amritsar</li><li>Golden Temple</li><li>Attari–Wagah Border</li><li>Pathankot</li><li>Chandigarh</li><li>Manali</li><li>Rohtang La</li></ul></div>
+<div class="card"><h3>Kashmir & Ladakh</h3><ul><li>Srinagar</li><li>Sonamarg</li><li>Zoji La</li><li>Kargil War Memorial</li><li>Lamayuru</li><li>Leh</li><li>Turtuk</li><li>Pangong Tso</li></ul></div></div>
+
+<h2>Couple accommodation plan</h2><div class="notice"><b>Accommodation budget set by you:</b> ₹22,000 total for the entire trip. If the plan uses 21 overnight stays, this averages about ₹1,050 per night for both people. This is a very tight budget for private rooms across tourist and remote Himalayan destinations; expect basic guesthouses/homestays, shared facilities in some places, and possible extra cost at Pangong, Turtuk, Leh and Manali. Treat ₹22,000 as a target cap, not a guaranteed bookable price.</div><table><tr><th>Area</th><th>Suggested stay</th><th>Check before booking</th></tr>
+<tr><td>Mangaluru, Lonavala, Udaipur, Ajmer, Jaipur</td><td>Budget lodge / basic private room where affordable</td><td>Secure bike parking; confirm bathroom type and total price before booking.</td></tr>
+<tr><td>Amritsar, Pathankot, Srinagar, Kargil</td><td>Budget guesthouse / basic room</td><td>Compare total price, parking and cancellation terms.</td></tr>
+<tr><td>Leh</td><td>Budget guesthouse; plan 4 nights</td><td>Prioritise cleanliness, hot water, secure parking and access to medical help.</td></tr>
+<tr><td>Turtuk / Nubra</td><td>Simple registered homestay</td><td>Ask for the lowest available room rate; confirm meals and hot water.</td></tr>
+<tr><td>Pangong</td><td>Basic registered camp / guesthouse</td><td>Check full couple tariff, bedding, toilets, meals and operating status; this may exceed the nightly target.</td></tr>
+<tr><td>Jispa / Manali / Chandigarh</td><td>Budget guesthouse / basic private room</td><td>Secure parking; avoid assuming a cottage fits the ₹22,000 total stay budget.</td></tr></table>
+
+<h2>Bike & document checklist</h2><div class="grid">
+<div class="card"><h3>Motorcycle</h3><ul><li>Full service before departure</li><li>Tyres, brakes, chain and sprockets</li><li>Clutch cable, fuses and basic tools</li><li>Puncture kit and portable inflator</li><li>Check payload and luggage mounting</li><li>Emergency fuel only in approved, legal containers</li></ul></div>
+<div class="card"><h3>Rider & pillion</h3><ul><li>Certified full-face helmets</li><li>Armoured jackets, gloves and boots</li><li>Waterproof layers and thermal wear</li><li>Rain suits, first-aid kit and personal medicines</li><li>Offline maps and power banks</li><li>Warm layers even in July</li></ul></div>
+<div class="card"><h3>Documents & permits</h3><ul><li>DL, RC, insurance and PUC</li><li>Original photo ID</li><li>Check Ladakh fee and route permissions close to departure</li><li>Verify Wagah visitor access/timings</li><li>Check Rohtang permit rules</li><li>Check restrictions for border-area destinations</li></ul></div></div>
+
+<h2>Indicative budget for two</h2><p class="muted">Planning estimate only, not live quotations. Accommodation is fixed at your requested ₹22,000 total; all other costs remain estimates and may change with mileage, fuel prices and actual duration.</p>
+<table><tr><th>Expense</th><th>Estimate</th></tr><tr><td>Fuel (one motorcycle)</td><td>₹30,000–45,000</td></tr><tr><td>Accommodation (your requested total cap)</td><td><b>₹22,000</b></td></tr><tr><td>Food for two</td><td>₹25,000–38,000</td></tr><tr><td>Service / wear / repairs</td><td>₹10,000–18,000</td></tr><tr><td>Permits / entry / activities</td><td>₹3,000–8,000</td></tr><tr><td>Emergency reserve</td><td>₹20,000–30,000</td></tr><tr><th>Total indicative range with ₹22,000 stay budget</th><th>₹1.10–1.61 lakh</th></tr></table>
+
+<h2>Final checks before July 2027</h2><ul>
+<li>Recheck Srinagar–Leh and Manali–Leh highway status before departure.</li><li>Monitor monsoon, landslide and flash-flood advisories.</li>
+<li>Verify current Ladakh acclimatisation guidance and permits.</li><li>Check Rohtang access and local border-area restrictions.</li><li>Prefer refundable stays and avoid booking remote camps too early.</li><li>Keep 2–5 buffer days or remove sightseeing stops to make the trip safer.</li></ul>
+<div class="notice"><b>Bottom line:</b> The maps show the two different route corridors and the itinerary includes your saved locations. The 22-day target is not safely achievable as written: the last three return legs are too long for sensible single-day rides. Extend the trip or reduce destinations rather than riding exhausted.</div>
+</main><footer><div class="wrap">Prepared for the July 2027 Balussery–Ladakh couple motorcycle expedition. Internet is required to load the interactive maps and open live navigation.</div></footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const P={
+home:["Balussery",[11.45,75.84]],mng:["Mangaluru",[12.91,74.86]],lon:["Lonavala",[18.75,73.41]],uda:["Udaipur",[24.58,73.68]],ajm:["Ajmer",[26.45,74.64]],jai:["Jaipur",[26.91,75.79]],amr:["Amritsar / Golden Temple",[31.62,74.88]],att:["Attari–Wagah Border",[31.60,74.57]],path:["Pathankot",[32.27,75.65]],sri:["Srinagar",[34.08,74.84]],son:["Sonamarg",[34.30,75.29]],zoj:["Zoji La",[34.28,75.50]],dras:["Kargil War Memorial, Dras",[34.43,75.77]],kar:["Kargil",[34.56,76.13]],lam:["Lamayuru",[34.28,76.77]],leh:["Leh",[34.15,77.58]],tur:["Turtuk",[34.85,76.83]],nub:["Hunder / Nubra",[34.57,77.43]],pan:["Pangong Tso",[33.76,78.66]],jis:["Jispa",[32.68,77.17]],key:["Keylong",[32.57,77.03]],roh:["Rohtang Pass",[32.37,77.25]],man:["Manali",[32.24,77.19]],cha:["Chandigarh",[30.73,76.78]],ind:["Indore",[22.72,75.86]],hyd:["Hyderabad",[17.39,78.49]],blr:["Bengaluru",[12.97,77.59]]
+};
+function routeMap(id,keys,color){const m=L.map(id,{scrollWheelZoom:false});L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; OpenStreetMap'}).addTo(m);const pts=keys.map(k=>P[k]);pts.forEach((p,i)=>L.marker(p[1]).addTo(m).bindPopup((i+1)+'. '+p[0]));const line=L.polyline(pts.map(p=>p[1]),{color,weight:4,dashArray:'7 7'}).addTo(m);m.fitBounds(line.getBounds().pad(.12));}
+routeMap('going',['home','mng','lon','uda','ajm','jai','amr','att','path','sri','son','zoj','dras','kar','lam','leh'],'#0f766e');
+routeMap('return',['leh','jis','key','roh','man','cha','ind','hyd','blr','home'],'#1d4ed8');
+</script></body></html>
